@@ -1,9 +1,4 @@
-.text_box {
-    margin-top: 300px;
-    margin-bottom: 300px
-}
-
-.txt-hide{
+.hidden {
     display: none;
 }
     
@@ -28,8 +23,4 @@ button.more::after {
     
 button.more.on-click::after{
     content: "閉じる";
-}
-
-.hidden {
-    display: none;
 }
