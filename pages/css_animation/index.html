@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイトル</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box one">
+        <h1>アニメーションなし</h1>
+    </div>
+    <div class="box two">
+        <h1>ふわっ</h1>
+    </div>
+    <div class="box three">
+        <h1>ふわっ</h1>
+    </div>
+    <div class="box four">
+        <h1>ふわっ</h1>
+    </div>
+    <div class="text_box">
+        <h1>順番に浮き上がるよ</h1>
+    </div>
+</body>
+<script>
+    // 画像などのブロックをアニメーションさせる関数
+    function addAnimationClass(className, animationClassName) {
+        var element = document.querySelector(className);
+        var rect = element.getBoundingClientRect();
+
+        // rect.top: 画面上から上辺までの距離
+        // window.innerHeight: 画面高さ
+        if(rect.top < window.innerHeight) {
+            element.classList.add(animationClassName);
+        } else {
+            element.classList.remove(animationClassName);
+        }
+    }
+
+    // 文の１文字１文字をspanで囲う関数
+    function addSpan(className) {
+        const textElement = document.querySelector(className)
+        const textContent = textElement.textContent
+
+        const newTextContent = [...textContent].map((char, index) => `<span style="animation-delay: ${index*0.1}s">${char}</span>`).join('')
+        textElement.innerHTML = newTextContent
+    }
+
+    // elementが画面に現れた時にclassを追加する関数
+    function addClassToElementWhenShowUp(elem, className) {
+        var rect = elem.getBoundingClientRect();
+        if(rect.top < window.innerHeight) {
+            elem.classList.add(className);
+        } else {
+            elem.classList.remove(className);
+        }
+    }
+
+    function addTextAnimationClass(className, animationClassName){
+        addSpan(className)
+        const spanElements = document.querySelectorAll(`${className} span`);
+        spanElements.forEach(span => {
+            addClassToElementWhenShowUp(span, animationClassName)
+        });
+    }
+
+    window.addEventListener('scroll', function() {
+       addAnimationClass('.two', 'up')      // 2番目の四角
+       addAnimationClass('.three', 'left')  // 3番目の四角
+       addAnimationClass('.four', 'right')  // 4番目の四角
+       
+       addTextAnimationClass('.text_box h1', 'text_up')
+    });
+
+</script>
+</html>

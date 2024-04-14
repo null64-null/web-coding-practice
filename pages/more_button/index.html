@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>もっとみるボタン</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>もっとみるボタン</h1>
+
+        <div id="wrap">
+            <div class="txt-show">
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
+            </div>
+            <div class="txt-under">
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+                あああああああああああああああああああああああああああああああああああああああああ
+            </div>
+            <button class="more hidden"></button>    
+        </div>
+
+    </body>
+    <script>
+        $(function(){
+            $(".more").on("click", function() {
+                $(this).toggleClass("on-click");
+                $(".txt-under").slideToggle(1000);
+            });
+        });
+
+        $(document).ready(function(){
+            checkWidth();
+
+            $(window).resize(function(){
+                checkWidth();
+            });
+        });
+
+        function checkWidth() {
+            var windowWidth = $(window).width();
+            var thresholdWidth = 600;
+
+            if(windowWidth <= thresholdWidth) {
+                $(".more").removeClass("hidden");
+                $(".txt-under").addClass("hidden");
+            } else {
+
+                $(".more").addClass("hidden");
+                $(".txt-under").removeClass("hidden");
+            }
+        }
+    </script>
+</html>

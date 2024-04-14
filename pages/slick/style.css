@@ -1,0 +1,5 @@
+.your-class img{
+    margin:10px;/*画像の周りに余白*/
+    width:95%;/*横幅に制限*/
+    border:0.5px solid #eee;/*周囲に薄いボーダー*/
+}

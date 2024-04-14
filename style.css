@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 300px;
+}
+
+.one {
+    background-color: green;
+}
+
+.two {
+    background-color: burlywood;
+}
+
+.three {
+    background-color: aqua;
+}
+
+.four {
+    background-color: gold;
+}
+    
+/* 上にふわっと動くアニメーション */
+.up {
+    animation-name: moveUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out; /* アニメーションのタイミング関数 */
+    animation-fill-mode: both; /* アニメーションの開始前と終了後のスタイルを保持 */
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+/* 左からふわっと動くアニメーション */
+.left {
+    animation-name: moveLeft;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* 右からふわっと動くアニメーション */
+.right {
+    animation-name: moveRight;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* 上にふわっと動くアニメーション */
+.text_up {
+    display: inline-block;
+    opacity: 0;
+    animation: textUp 0.8s forwards;
+    transform: translateY(3rem);
+}
+
+@keyframes textUp {
+    0% {
+        opacity:0;
+        transform: translateY(1rem);
+    }
+
+    100% {
+        opacity:100;
+        transform: translateY(0rem);
+    }
+}
+
