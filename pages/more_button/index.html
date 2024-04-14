@@ -36,12 +36,7 @@
 
     </body>
     <script>
-        $(function(){
-            $(".more").on("click", function() {
-                $(this).toggleClass("on-click");
-                $(".txt-under").slideToggle(1000);
-            });
-        });
+        var flg = false
 
         $(document).ready(function(){
             checkWidth();
@@ -51,18 +46,32 @@
             });
         });
 
+        $(function(){
+            $(".more").on("click", function() {
+                $(this).toggleClass("on-click");
+                $(".txt-under").slideToggle(1000);
+            });
+        });
+
         function checkWidth() {
             var windowWidth = $(window).width();
             var thresholdWidth = 600;
 
-            if(windowWidth <= thresholdWidth) {
+            if(windowWidth < thresholdWidth) {
                 $(".more").removeClass("hidden");
-                $(".txt-under").addClass("hidden");
-            } else {
 
-                $(".more").addClass("hidden");
-                $(".txt-under").removeClass("hidden");
+                if(flg === false) {
+                    $(".txt-under").slideUp(1000);
+                    flg = true
+                }
             }
+            
+            if(windowWidth > thresholdWidth) {
+                $(".more").addClass("hidden");
+                $(".txt-under").slideDown(1000);
+                flg = false
+            }
+            
         }
     </script>
 </html>

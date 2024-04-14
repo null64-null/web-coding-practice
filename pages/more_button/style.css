@@ -13,6 +13,8 @@ button.more {
     outline: 0;
     transition: .5s;
     -erbkit-transition: .5s;
+
+    opacity: 0.3; 
 }
      
 button.more::after {
