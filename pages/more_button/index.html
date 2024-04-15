@@ -10,7 +10,7 @@
     <body>
         <h1>もっとみるボタン</h1>
 
-        <div id="wrap">
+        <div class="wrap">
             <div class="txt-upper">
                 ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
                 ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
@@ -20,7 +20,7 @@
                 ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
                 ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
             </div>
-            <div class="txt-under">
+            <div class="txt-under is-open">
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
@@ -31,12 +31,64 @@
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
             </div>
-            <button class="more hidden"></button>    
+            <p class="more-button hidden">
+                <span class="more">もっとみる</span>
+            </p>
         </div>
 
     </body>
     <script>
         var flg = false
+        var isOpen = true
+        const thresholdWidth = 600;
+
+        $(document).ready(function(){
+            checkWidth();
+
+            $(window).resize(function(){
+                checkWidth();
+            });
+
+            $(".more-button").on("click", function() {
+                isOpen = !isOpen
+
+                if(isOpen) {
+                    $(".txt-under").addClass("is-open");
+                    $(".more").text("とじる");
+                } else {
+                    $(".txt-under").removeClass("is-open");
+                    $(".more").text("もっとみる");
+                }
+            });
+        });
+
+        function checkWidth() {
+            var windowWidth = $(window).width();
+
+            if(windowWidth < thresholdWidth) {
+                $(".more-button").removeClass("hidden");
+
+                if(flg === false) {
+                    $(".txt-under").removeClass("is-open");
+                    flg = true
+                    isOpen = false
+                }
+            }
+            
+            if(windowWidth > thresholdWidth) {
+                $(".more-button").addClass("hidden");
+                $(".txt-under").addClass("is-open");
+                flg = false
+                isOpen = true
+
+                $(".more").text("もっとみる");
+            }
+            
+        }
+
+        /*
+        var flg = false
+        var isOpen = true
 
         $(document).ready(function(){
             checkWidth();
@@ -47,9 +99,22 @@
         });
 
         $(function(){
-            $(".more").on("click", function() {
+            $(".more-button").on("click", function() {
                 $(this).toggleClass("on-click");
                 $(".txt-under").slideToggle(1000);
+                isOpen = !isOpen
+                
+                if(isOpen) {
+                    $(".more").addClass("hidden");
+                    $(".more").removeClass("inline-block");
+                    $(".close").addClass("inline-block");
+                    $(".close").removeClass("hidden");
+                } else {
+                    $(".more").addClass("inline-block");
+                    $(".more").removeClass("hidden");
+                    $(".close").addClass("hidden");
+                    $(".close").removeClass("inline-block");
+                }
             });
         });
 
@@ -58,20 +123,28 @@
             var thresholdWidth = 600;
 
             if(windowWidth < thresholdWidth) {
-                $(".more").removeClass("hidden");
+                $(".more-button").removeClass("hidden");
 
                 if(flg === false) {
                     $(".txt-under").slideUp(1000);
                     flg = true
+                    isOpen = false
                 }
             }
             
             if(windowWidth > thresholdWidth) {
-                $(".more").addClass("hidden");
+                $(".more-button").addClass("hidden");
                 $(".txt-under").slideDown(1000);
                 flg = false
+                isOpen = true
+
+                $(".more").addClass("inline-block");
+                $(".more").removeClass("hidden");
+                $(".close").addClass("hidden");
+                $(".close").removeClass("inline-block");
             }
             
         }
+        */
     </script>
 </html>
