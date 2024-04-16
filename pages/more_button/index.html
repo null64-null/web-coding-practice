@@ -29,17 +29,22 @@
 
     </body>
     <script>
-        var flg = false
-        var isOpen = true
-        const thresholdWidth = 600;
+        // 気になる変数があったらconsole.logで出力して、画面幅変えたり、ボタン押したりしたときどう変数の値が変わるかみてみてー
+        // 「これいるの？なんであるの？」っていうコードがあれば、コメントアウトした状態でどうななるか試してみてー
+
+        var flg = false // 勝手にテキストが閉じるのを防止する変数（後述）
+        var isOpen = true // テキストが開いているときはtrue、閉じているときはfalse
+        const thresholdWidth = 600; // ボタンを出す、出さないの境界の画面幅（仮で600pxにした）
 
         $(document).ready(function(){
             checkWidth();
 
+            // 画面サイズが変更された時に発火する関数（checkWidth(詳細は下)）
             $(window).resize(function(){
                 checkWidth();
             });
 
+            // ボタンが押された時に発火する関数（テキストの開閉を行う）
             $(".more-button").on("click", function() {
                 isOpen = !isOpen
 
@@ -53,26 +58,31 @@
             });
         });
 
+        // 画面サイズが変更された時、ボタンの表示の有無とテキスト開閉を制御する関数（はじめに画面を表示した瞬間も発火させる）
         function checkWidth() {
-            var windowWidth = $(window).width();
+            var windowWidth = $(window).width(); //現在のウィンド幅
 
+            // 画面が600px以下になった時に「ボタンを表示」+「テキスト閉じる」
             if(windowWidth < thresholdWidth) {
                 $(".more-button").removeClass("hidden");
 
+                // テキストを閉じる
+                // 関数checkWidthは、画面サイズを変えるたびに発火してしまうので、ボタンを押して開いている状態のテキストを、画面サイズを変えただけで閉じてしまうので、ifとflgでこれを防止する
                 if(flg === false) {
                     $(".txt").removeClass("is-open");
-                    flg = true
+                    flg = true //一度テキストを閉じたらflgをtrueにすると、次はifの中身が実行されなくなる
                     isOpen = false
                 }
             }
             
+            // 画面が600px以上になった時に「ボタンを非表示」+「テキストを開く」
             if(windowWidth > thresholdWidth) {
                 $(".more-button").addClass("hidden");
                 $(".txt").addClass("is-open");
-                flg = false
+                flg = false //flgはfalseに戻しておく（次、画面幅が600px以下になる瞬間で使うために）
                 isOpen = true
 
-                $(".more").text("もっとみる");
+                $(".more").text("もっとみる"); //ボタンの表示は「もっとみる」に戻しておく（実際にボタンが表示されるわけではないが、次、画面幅が600px以下になったときのために）
             }
             
         }
