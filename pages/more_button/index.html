@@ -11,16 +11,7 @@
         <h1>もっとみるボタン</h1>
 
         <div class="wrap">
-            <div class="txt-upper">
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-                ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。ここにデフォルトで表示するテキストを入力します。
-            </div>
-            <div class="txt-under is-open">
+            <div class="txt is-open">
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
@@ -53,10 +44,10 @@
                 isOpen = !isOpen
 
                 if(isOpen) {
-                    $(".txt-under").addClass("is-open");
+                    $(".txt").addClass("is-open");
                     $(".more").text("とじる");
                 } else {
-                    $(".txt-under").removeClass("is-open");
+                    $(".txt").removeClass("is-open");
                     $(".more").text("もっとみる");
                 }
             });
@@ -69,7 +60,7 @@
                 $(".more-button").removeClass("hidden");
 
                 if(flg === false) {
-                    $(".txt-under").removeClass("is-open");
+                    $(".txt").removeClass("is-open");
                     flg = true
                     isOpen = false
                 }
@@ -77,7 +68,7 @@
             
             if(windowWidth > thresholdWidth) {
                 $(".more-button").addClass("hidden");
-                $(".txt-under").addClass("is-open");
+                $(".txt").addClass("is-open");
                 flg = false
                 isOpen = true
 
