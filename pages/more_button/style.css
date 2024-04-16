@@ -1,7 +1,3 @@
-.wrap {
-    width: 100%;
-}
-
 .hidden {
     display: none;
 }
@@ -18,11 +14,12 @@
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 2px;
-
     width: 100%;
     background-color: #000;
 }
 
+/* ボタンすぐ上の透かし部分 */
+/* :afterで、その要素の直前に何か足せるらしい */
 .more-button:after {
     position: absolute;
     display: block;
@@ -33,7 +30,9 @@
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), #000);
 }
 
-/*  */
+/* 「閉じる」状態のテキスト */
+/* max-heightを設定して、はみ出た分は次表示（overflow: hidden）という仕組み */
+/* transition はテキストの開くスピード */
 .txt {
     max-height: 100px;
     overflow: hidden;
@@ -41,6 +40,8 @@
     padding: 0 10px;
 }
 
+/* 「開く」状態のテキスト */
+/* transition はテキストの閉じるスピード */
 .txt.is-open {
     max-height: 500px;
     transition: all 1s;
