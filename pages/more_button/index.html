@@ -72,7 +72,7 @@
 
             // 画面が600px以下になった時に「ボタンを表示」+「テキスト閉じる」
             if(windowWidth < thresholdWidth) {
-                $(".more-button").removeClass("hidden");
+                $(".more-button").removeClass("hidden"); //あみの場合これは@なんちゃら（画面幅のレスポンシブCSS）で書いているのでこの行は不要のはず
 
                 // テキストを閉じる
                 // 関数checkWidthは、画面サイズを変えるたびに発火してしまうので、ボタンを押して開いている状態のテキストを、画面サイズを変えただけで閉じてしまうので、ifとflgでこれを防止する
@@ -85,7 +85,7 @@
             
             // 画面が600px以上になった時に「ボタンを非表示」+「テキストを開く」
             if(windowWidth > thresholdWidth) {
-                $(".more-button").addClass("hidden");
+                $(".more-button").addClass("hidden"); //あみの場合これは@なんちゃら（画面幅のレスポンシブCSS）で書いているのでこの行は不要のはず
                 $(".txt").addClass("is-open");
                 flg = false //flgはfalseに戻しておく（次、画面幅が600px以下になる瞬間で使うために）
                 isOpen = true
