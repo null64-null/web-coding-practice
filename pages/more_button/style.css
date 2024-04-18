@@ -46,3 +46,25 @@
     max-height: 500px;
     transition: all 1s;
 }
+
+/* 以下、ボタンの矢印のCSS */
+/* 「開く」「閉じる」共通 */
+.arrow {
+    display: inline-block;
+    background-size: cover; /* 必須、無いと背景画像が出ない*/
+    width: 15px;            /* 必須、無いと背景画像が出ない */
+    height: 15px;           /* 必須、無いと背景画像が出ない */
+}
+
+/* 「閉じる」状態の矢印 */
+.up-arrow {
+    background-image: url('arrow.png');
+}
+
+/* 「開く」状態のテキスト */
+.down-arrow {
+    background-image: url('arrow.png');
+    transform: rotate(180deg) /* 画像の180度回転 */
+}
+
+/* テキストと、矢印の高さがどうしてもずれてしまうみたいだけど、矢印画像を小さくすればわからない...？ */

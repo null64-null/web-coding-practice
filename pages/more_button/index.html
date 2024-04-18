@@ -24,6 +24,7 @@
             </div>
             <p class="more-button hidden">
                 <span class="more">もっとみる</span>
+                <span class="arrow down-arrow"></span>
             </p>
         </div>
 
@@ -48,12 +49,19 @@
             $(".more-button").on("click", function() {
                 isOpen = !isOpen
 
+                // ボタンのテキストと、矢印を切り替える
                 if(isOpen) {
                     $(".txt").addClass("is-open");
                     $(".more").text("とじる");
+
+                    $(".arrow").removeClass("down-arrow");
+                    $(".arrow").addClass("up-arrow");
                 } else {
                     $(".txt").removeClass("is-open");
                     $(".more").text("もっとみる");
+
+                    $(".arrow").removeClass("up-arrow");
+                    $(".arrow").addClass("down-arrow");
                 }
             });
         });
@@ -83,6 +91,8 @@
                 isOpen = true
 
                 $(".more").text("もっとみる"); //ボタンの表示は「もっとみる」に戻しておく（実際にボタンが表示されるわけではないが、次、画面幅が600px以下になったときのために）
+                $(".arrow").removeClass("up-arrow"); //矢印も同様に上向に戻しておく
+                $(".arrow").addClass("down-arrow");
             }
             
         }
