@@ -22,9 +22,9 @@
                 あああああああああああああああああああああああああああああああああああああああああ
                 あああああああああああああああああああああああああああああああああああああああああ
             </div>
-            <p class="more-button hidden">
+            <p class="more-button">
                 <span class="more">もっとみる</span>
-                <span class="arrow down-arrow"></span>
+                <span class="arrow"></span>
             </p>
         </div>
 
@@ -38,7 +38,7 @@
         const thresholdWidth = 600; // ボタンを出す、出さないの境界の画面幅（仮で600pxにした）
 
         $(document).ready(function(){
-            checkWidth();
+            checkWidth(); //画面が初回ロードされた時もcheckWidthする
 
             // 画面サイズが変更された時に発火する関数（checkWidth(詳細は下)）
             $(window).resize(function(){
@@ -47,19 +47,23 @@
 
             // ボタンが押された時に発火する関数（テキストの開閉を行う）
             $(".more-button").on("click", function() {
-                isOpen = !isOpen
+                isOpen = !isOpen //とじるひらく状態の切り替え
 
                 // ボタンのテキストと、矢印を切り替える
-                if(isOpen) {
+                if(isOpen) { // 文章が開いた場合
+                    // テキストを「閉じる」にする
                     $(".txt").addClass("is-open");
                     $(".more").text("とじる");
 
+                    // 矢印を上向にする
                     $(".arrow").removeClass("down-arrow");
                     $(".arrow").addClass("up-arrow");
-                } else {
+                } else { // 文章が閉じた場合
+                    // テキストを「開く」にする
                     $(".txt").removeClass("is-open");
                     $(".more").text("もっとみる");
 
+                    // 矢印を下向きにする
                     $(".arrow").removeClass("up-arrow");
                     $(".arrow").addClass("down-arrow");
                 }
@@ -72,27 +76,32 @@
 
             // 画面が600px以下になった時に「ボタンを表示」+「テキスト閉じる」
             if(windowWidth < thresholdWidth) {
-                $(".more-button").removeClass("hidden"); //あみの場合これは@なんちゃら（画面幅のレスポンシブCSS）で書いているのでこの行は不要のはず
-
-                // テキストを閉じる
+                $(".more-button").removeClass("hidden"); //画面幅のレスポンシブCSSで書いている場合、この行は不要のはず
+                
                 // 関数checkWidthは、画面サイズを変えるたびに発火してしまうので、ボタンを押して開いている状態のテキストを、画面サイズを変えただけで閉じてしまうので、ifとflgでこれを防止する
+                // 「テキストをとじる」+ 「ボタンを開く表示にする」
                 if(flg === false) {
                     $(".txt").removeClass("is-open");
                     flg = true //一度テキストを閉じたらflgをtrueにすると、次はifの中身が実行されなくなる
                     isOpen = false
+
+                    $(".more").text("もっとみる");
+                    $(".arrow").removeClass("up-arrow");
+                    $(".arrow").addClass("down-arrow");
                 }
             }
             
-            // 画面が600px以上になった時に「ボタンを非表示」+「テキストを開く」
+            // 画面が600px以上になった時に「ボタンを非表示」+「テキストを開く」+ 「ボタンをとじる表示にする」
             if(windowWidth > thresholdWidth) {
-                $(".more-button").addClass("hidden"); //あみの場合これは@なんちゃら（画面幅のレスポンシブCSS）で書いているのでこの行は不要のはず
+                $(".more-button").addClass("hidden"); //画面幅のレスポンシブCSSで書いている場合、でこの行は不要のはず
                 $(".txt").addClass("is-open");
                 flg = false //flgはfalseに戻しておく（次、画面幅が600px以下になる瞬間で使うために）
                 isOpen = true
-
-                $(".more").text("もっとみる"); //ボタンの表示は「もっとみる」に戻しておく（実際にボタンが表示されるわけではないが、次、画面幅が600px以下になったときのために）
-                $(".arrow").removeClass("up-arrow"); //矢印も同様に上向に戻しておく
-                $(".arrow").addClass("down-arrow");
+                
+                // 以下はいらない
+                // $(".more").text("とじる");
+                // $(".arrow").removeClass("down-arrow");
+                // $(".arrow").addClass("up-arrow");
             }
             
         }

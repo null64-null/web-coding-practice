@@ -59,12 +59,12 @@
 /* 「閉じる」状態の矢印 */
 .up-arrow {
     background-image: url('arrow.png');
+    transform: rotate(180deg) /* 画像の180度回転 */
 }
 
 /* 「開く」状態のテキスト */
 .down-arrow {
     background-image: url('arrow.png');
-    transform: rotate(180deg) /* 画像の180度回転 */
 }
 
-/* テキストと、矢印の高さがどうしてもずれてしまうみたいだけど、矢印画像を小さくすればわからない...？ */
+/* テキストと、矢印の高さがどうしてもずれてしまうみたいだけど、矢印画像を小さくすればわからない */
