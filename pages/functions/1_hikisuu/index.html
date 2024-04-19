@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 引数</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>1. 引数</h1>
+    <p>コード参照</p>
+</body>
+<script>
+    $(document).ready(function(){
+        // 解説
+        greet()
+
+        const name = "たなか"
+        const age = 20   
+        introduction(name, age)
+        introduction("やまだ", 40) // 変数を使用せず、引数を直接入力してもいい
+
+        const mootherName = "はは"
+        const motherAge = 45
+        const fatherName = "ちち"
+        const fatherAge = 44
+        const myName = "わたし"
+        const myAge = 21
+        introduction(mootherName, motherAge) //変数名はname, ageでなくてもいい、順番があっていればいい
+        introduction(fatherName, fatherAge)
+        introduction(myName, myAge)
+
+        introduction(myAge, myName) //これは、逆になってしまう（21さんはわたし歳です）
+
+
+
+
+        // 問題
+
+        // 以下の3つの数の組みの足し算をして、結果をコンソールに出力
+        // 関数は1つ作って、３回使い回す
+
+        // 1つめ（1+2）
+        const num1 = 1
+        const num2 = 2
+        // ここで関数を実行
+
+
+        // 2つめ（5+7）
+        const num3 = 5
+        const num4 = 7
+        // ここで関数を実行
+
+
+        // 3つめ（10+3）
+        const num5 = 10
+        const num6 = 3
+        // ここで関数を実行
+
+
+    })
+    // 解説
+    function greet() { //引数はなくてもいい
+        console.log("こんにちは！")
+    }
+
+    function introduction(name, age) { //引数は何個でも大丈夫
+        console.log(`${name}さんは${age}歳です`)
+    }
+
+    // 問題
+    // 以下に関数を書く
+
+</script>
+</html>
