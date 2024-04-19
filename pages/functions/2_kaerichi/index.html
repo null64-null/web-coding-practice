@@ -8,20 +8,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1></h1>
-    <p></p>
+    <h1>2. 返り値</h1>
+    <p>コード参照</p>
 </body>
 <script>
     $(document).ready(function(){
-        // 解説
-        
-    
-        // 問題
-    })
-    // 解説
-    
-    // 問題
-    // 以下に関数を書く
+       // 解説
+       const a = 2
+       const b = 3
+       const c = add(a, b) // このように書くと、aとbの足し算の答えをcに格納できる
+       console.log(c)
+       console.log(add(a, b)) // add(a, b)自体、変数のように扱える
 
+       // 問題
+       // ・年齢を引数にして、成人しているかどうかをを判別して、成人なら「成人」未成年なら「未成年」というテキストを返す関数（20歳かどうか）
+       // ・年齢を引数にして、お酒がのめるかどうかを判別して、飲めるなら「飲めます」飲めないなら「飲めません」というテキストを返す（18歳かどうか）
+       // の2つの関数を使って、「成人で、お酒が飲めます」のようなテキストをコンソールに出力する
+       // 以下の3人分を判別する
+
+       let isAdult = "" //ここに、「成人」「未成年」を格納していく（今回は3人で同じ変数を使い回す、更新していく）
+       let isDrinkable = "" //ここに、「飲めます」「飲めません」を格納していく（今回は3人で同じ変数を使い回す、更新していく）
+
+       // 1人目
+       myAge = 19
+       isAdult =
+       isDrinkable = 
+       console.log(`${isAdult}で、お酒が${isDrinkable}`)
+
+       // 2人目
+       myBrotherAge = 15
+       isAdult =
+       isDrinkable = 
+       console.log(`${isAdult}で、お酒が${isDrinkable}`)
+
+       // 1人目
+       mySisterAge = 22
+       isAdult =
+       isDrinkable = 
+       console.log(`${isAdult}で、お酒が${isDrinkable}`)
+
+    })
+
+    // 解説
+    function add(num1, num2) {
+        const sum = num1 + num2
+        return sum // num1とnum2の合計であるsumを返す
+    }
+
+    // 問題
+    // ここに関数を書く（成人しているかどうか）
+
+    // ここに関数を書く（お酒が飲めるかどうか）
+    
 </script>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. 用意された関数とメソッド（練習）</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>4. 用意された関数とメソッド（練習）</h1>
+    <div style="margin-bottom: 40px;">
+        <h2>htmlやcssに関するメソッド</h2>
+        <a href="https://stand-4u.com/web/javascript/jquery-method.html">【参考記事】jQueryの「メソッド一覧」と使い方</a>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>HP上の操作などで発火させるメソッド・他のメソッド（一例）</h2>
+        <div style="margin-bottom: 30px;">
+            <h3>.on("action-name", func)</h3>
+            <p>・第1引数"action-name"は、操作の種類（string型で"click"など）</p>
+            <p>・第2引数funcは関数（関数の引数として関数を入れる!）</p>
+            <p>・このメソッドを適応する要素に対し、"action-name"の操作がされた時、funcの関数を実行する</p>
+            <h4>例: ボタンが押されたら「push」とコンソール出力する（コードも参照）</h4>
+            <p>$('.button-class').on( "click", function(){console.log("push")} )</p>
+            <div class="button-class">ボタン</div>
+            <div class="button-class2">ボタン2</div>
+        </div>
+        <div style="margin-bottom: 30px;">
+            <h3>.ready(func)</h3>
+            <p>・ $(document).ready( function(){ ... } ) のこと</p>
+            <p>・jQueryを書く時、メインコードを{ ... }の中に書いているあれ</p>
+            <p>・実はこれも関数（メソッド）で、"ページ全体"$(document)に対し、ページ全体が表示された後、引数の関数のを実行する。という意味になっている</p>
+            <p>コードも参照</p>
+        </div>
+        <div style="margin-bottom: 30px;">
+            <h3>そのほか（一覧）</h3>
+            <a href="https://qiita.com/anago1030/items/62da6bc05bca7a0bee55">参考１</a>
+            <a href="https://qiita.com/msrks/items/cc3615b312d6acdd8b5f">参考２</a>
+        </div>
+        <h3>これら以外にも、たくさんメソッドや関数が用意されているので、なにか行いたい操作があり、自分で作るのが難しそうなときは、メソッドが用意されていないか調べるとよい</h3>
+    </div>
+
+    <!-- ここから、問題用html -->
+
+</body>
+<script>
+    $(document).ready(function(){ //ページが起動したら、関数function(){...}を実行する。という意味
+        // 解説
+        $(".button-class").on("click", function(){
+            console.log("push")
+        })
+
+        // このような書き方でもいい（この場合、pushButton2()と、()はつけない）
+        // あらかじめ関数を定義しておいて、引数に渡している
+        // 上の書き方は、その場で関数を定義して引数として渡している
+        // function(){} という書き方は、その場で関数を定義して引数にするための特殊な書き方と思っていて大丈夫
+        $(".button-class2").on("click", pushButton2) 
+    
+
+
+        // 問題
+    })
+    // 解説
+    function pushButton2() {
+        console.log("push 2!")
+    }
+    
+
+
+    // 問題
+    // 以下に関数を書く
+
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. 用意された関数とメソッド（解説）</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="title">3. 用意された関数とメソッド（解説）</h1>
+    <div style="margin-bottom: 40px;">
+        <h2>$() について</h2>
+        <p>・関数らしい。jQuery()ともかけるそうだ</p>
+        <p>・jQueryにもともと備わっている、特殊な関数</p>
+        <p>・引数にクラス名やタグ名を渡すと、そのクラス名やタグ名を持つ要素自体を返り値として返す</p>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>$('.class-name').addClass('new-class-name') のような書き方</h2>
+        <p>・addClass()は「メソッド」と呼ばれるもの</p>
+        <p>・取得した要素の後に「.」をつけて繋げて使う</p>
+        <p>・取得した要素に対して何かしらの処理を行う（例では、要素にnew-css-classという新しいCSSクラスをつけている）</p>
+        <p>・addClass('new-class-name')の'new-class-name'は引数であり、関数と全く同じ使い方をする（ちなみにaddClassの場合は返り値は返していみたい）</p>
+        <p>・つまり、メソッドは、関数の一種で「ドットで繋げて使う関数」</p>
+        <p>・メソッドは、jQuery, JavaScriptで元々のたくさん用意されている（自分で作ることはあまりなさそう）</p>
+        <p>・つまり、メソッドは概ね「すでに用意されている、ドットで繋げて使う関数」</p>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        // 解説
+        // $()が引数（クラス名）を取り、返り値（要素）を返している様子の確認
+        let element = $('.title') // 引数（クラス名）をもとに、返り値（要素）を取得し、elementに格納
+        console.log(element) //コンソールに要素の情報のようなものが出力されているはず、これが返り値になっている
+    })
+</script>
+</html>
