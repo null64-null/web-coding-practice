@@ -13,4 +13,12 @@
     text-align: center;
 }
 
+.one button {
+    background-color: red;
+}
+
+.two button {
+    background-color: red;
+}
+
 /* 以下、必要であればCSSを追加 */
