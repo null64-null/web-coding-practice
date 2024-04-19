@@ -42,24 +42,44 @@
 
     <!-- ここから、問題用html -->
     <h1>問題</h1>
-    <div class="one" style="margin-bottom: 20px;">
-        <h2>1</h2>
-        <button>問題１</button>
+    <div class="one-one" style="margin-bottom: 20px;">
+        <h2>1-1</h2>
+        <button>問題 1-1</button>
     </div>
-    <div class="two" style="margin-bottom: 20px;">
-        <h2>2</h2>
+    <div class="one-two" style="margin-bottom: 20px;">
+        <h2>1-2</h2>
         <button>問題2</button>
     </div>
-    <div class="three" style="margin-bottom: 20px;">
-        <h2>3</h2>
+    <div class="one-three" style="margin-bottom: 20px;">
+        <h2>1-3</h2>
+        <button>問題3</button>
+    </div>
+    <div class="one-four" style="margin-bottom: 20px;">
+        <h2>1-4</h2>
+        <button>問題4</button>
+    </div>
+    <div class="one-five" style="margin-bottom: 20px;">
+        <h2>1-5</h2>
+        <button>問題5</button>
+    </div>
+    <div class="one-six" style="margin-bottom: 20px;">
+        <h2>1-6</h2>
+        <button>問題6</button>
+    </div>
+    <div class="two-one" style="margin-bottom: 20px;">
+        <h2>2-1</h2>
         <input>
     </div>
-    <div class="four" style="margin-bottom: 20px;">
-        <h2>4</h2>
+    <div class="two-two" style="margin-bottom: 20px;">
+        <h2>2-1</h2>
+        <input>
+    </div>
+    <div class="two-three" style="margin-bottom: 20px;">
+        <h2>2-3</h2>
         <input>
         <p></p>
     </div>
-    <div class="five" style="margin-bottom: 20px;">
+    <div class="two-four" style="margin-bottom: 20px;">
         <h2>5</h2>
         <input>
         <button>表示</button>
@@ -83,11 +103,30 @@
 
 
         // 問題
-        // 1. ボタンを押すと、赤いボタンが青いボタンになる
+        // 1-1. ボタンを押すとボタンの色がコンソールに出力される
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）ボタンの色を取得する方法
+
+        // 1-2. ボタンを押すと、赤いボタンが青いボタンになる
         // ・（ポイント）クリックを検知する方法
         // ・（ポイント）ボタンの色を変える方法
 
-        // 2. ボタンを押すと、ボタンの色が切り替わる（初めは赤で、青、赤、青、...と押すごとに切り替わる）
+        // 1-3. ボタンを押すと、何回押したかがコンソールに出力される
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+       
+        // 1-4. ボタンを押すと、何回押したかがコンソールに出力される ＋ 5回以上押したらそれ以降は数字ではなく「押しすぎ！」とテキストをコンソールに出力
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+        // ・（ポイント）回数によって処理を変える
+
+        // 1-5. ボタンを押すと、何回押したかがコンソールに出力される ＋ 5回以上押したらボタンを赤くする
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+        // ・（ポイント）回数によって処理を変える
+        // ・（ポイント）ボタンの色を変える方法
+
+        // 1-6. ボタンを押すと、ボタンの色が切り替わる（初めは赤で、青、赤、青、...と押すごとに切り替わる）
         // ・（ポイント）クリックを検知する方法
         // ・（ポイント）ボタンの色を取得する方法（色を変数（自分で作る）に格納すると良い）
         // ・（ポイント）ボタンの色を変える方法（何色の状態で押すかによって次何色になるかが変わる）
@@ -95,7 +134,7 @@
 
         // answer
         /*
-        $('.one button').on("click", function(){
+        $('.one-six button').on("click", function(){
             let color = $(this).css('background-color')
             if(color === "rgb(255, 0, 0)") {
                 $(this).css('background-color', 'rgb(0, 0, 255')
@@ -106,15 +145,19 @@
         })
         */
 
-        // 3. テキストボックスにテキストを何か入力すると、コンソールに「入力された！」と表示される
+        // 2-1. テキストボックスにテキストを何か入力すると、コンソールに「入力された！」と表示される
         // ・（ポイント）入力を検知する方法
 
-        // 4. テキストボックスにテキストを何か入力すると、隣に入力された文字が表示される
+        // 2-2. テキストボックスにテキストを何か入力すると、コンソールに入力されたテキストが表示される
+        // ・（ポイント）入力を検知する方法
+        // ・（ポイント）入力を取得してくる方法（入力値を変数に格納）
+
+        // 2-3. テキストボックスにテキストを何か入力すると、pに入力された文字が表示される
         // ・（ポイント）入力を検知する方法
         // ・（ポイント）入力を取得してくる方法（入力値を変数に格納）
         // ・（ポイント）文字を表示する要素に、どのように文字を設定するか？
 
-        // 5.  テキストボックスにテキストを何か入力し、ボタンを押すと、隣に入力された文字が表示される
+        // 2-4.  テキストボックスにテキストを何か入力し、ボタンを押すと、pに入力された文字が表示される
         // ・今回はボタンを押さなければ表示されない
         // ・（ポイント）入力を取得してくる方法（入力値を変数に格納すると良い）
         // ・（ポイント）ボタンが押されたことを検知する方法
@@ -124,12 +167,12 @@
         /*
         var value = ""
 
-        $('.five input').on('input', function(event){
+        $('.two-four input').on('input', function(event){
             value = $(this).val()
         })
 
-        $('.five button').on("click", function(){
-            $('.five p').text(value)
+        $('.two-four button').on("click", function(){
+            $('.two-four p').text(value)
         })
         */
   
