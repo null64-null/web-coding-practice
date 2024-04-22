@@ -26,7 +26,7 @@
     </div>
     <div style="margin-bottom: 40px;">
         <h2>問題</h2>
-        <div style="margin-bottom: 20px;">
+        <div class="one" style="margin-bottom: 20px;">
             <h3>1. 一度ボタンを押したら、色を青くする</h3>
             <p>flg : isPush</p>
             <button>push!</button>
@@ -34,7 +34,7 @@
         <div style="margin-bottom: 20px;">
             <h3>2. 一度提出ボタンを押したら、「提出済み」にしてボタンを押せなくする</h3>
             <p>flg : isSubmitted</p>
-            <button>提出</button>
+            <button disabled="">提出</button>
         </div>
         <div style="margin-bottom: 20px;">
             <h3>3. 入力欄に、入力欄が変更されるたびに、入力の有無（true, falseで）コンソールに出力</h3>
@@ -77,14 +77,20 @@
 </body>
 <script>
     $(document).ready(function(){
-        // 解説
-    
-        // 問題
-    })
-    // 解説
-    
-    // 問題
-    // 以下に関数を書く
+        // 1
+        isPush = false
+        $('.one button').on("click", function(){
+            // isPushの値を変更する
 
+            if(isPush){
+                // ボタンを押せなくする
+                
+            }
+        })
+
+        // 2
+
+    })
+  
 </script>
 </html>
