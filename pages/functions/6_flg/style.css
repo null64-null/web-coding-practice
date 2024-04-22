@@ -1,0 +1,56 @@
+/* ====== ここに必要に応じてCSSを書く ====== */
+
+
+
+
+
+
+
+
+
+
+/* ========== 以下、第6問のCSS ========== */
+
+/* ============ ボタンのCSS ============ */
+.more-button {
+    position: relative;
+    text-align: center;
+    padding: 40px 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 100%;
+    background-color: #000;
+}
+
+/* ボタンすぐ上の透かし部分 */
+.more-button:after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 40px;
+    top: -40px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), #000);
+}
+
+
+/* ============ テキストのCSS ============ */
+/* txtの開く、閉じる共通のCSS */
+.txt {
+    transition: all 1s;
+}
+
+/* 「開く」状態のテキスト */
+.txt-open {
+    max-height: none;
+}
+
+/* 「閉じる」状態のテキスト */
+/* max-heightを設定して、はみ出た分は次表示（overflow: hidden）という仕組み */
+.txt-closed {
+    max-height: 100px;
+    overflow: hidden;
+}
+
