@@ -1,0 +1,24 @@
+.button-class {
+    width: 100px;
+    height: 20px;
+    background-color: aqua;
+    text-align: center;
+}
+
+.button-class2 {
+    margin-top: 10px;
+    width: 100px;
+    height: 20px;
+    background-color: rgb(255, 106, 0);
+    text-align: center;
+}
+
+.one-two button {
+    background-color: red;
+}
+
+.one-six button {
+    background-color: red;
+}
+
+/* 以下、必要であればCSSを追加 */

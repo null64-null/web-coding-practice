@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. 用意された関数とメソッド（練習）</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>4. 用意された関数とメソッド（練習）</h1>
+    <div style="margin-bottom: 40px;">
+        <h2>htmlやcssに関するメソッド</h2>
+        <a href="https://stand-4u.com/web/javascript/jquery-method.html">【参考記事】jQueryの「メソッド一覧」と使い方</a>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>HP上の操作などで発火させるメソッド・他のメソッド（一例）</h2>
+        <div style="margin-bottom: 30px;">
+            <h3>.on("action-name", func)</h3>
+            <p>・第1引数"action-name"は、操作の種類（string型で"click"など）</p>
+            <p>・第2引数funcは関数（関数の引数として関数を入れる!）</p>
+            <p>・このメソッドを適応する要素に対し、"action-name"の操作がされた時、funcの関数を実行する</p>
+            <h4>例: ボタンが押されたら「push」とコンソール出力する（コードも参照）</h4>
+            <p>$('.button-class').on( "click", function(){console.log("push")} )</p>
+            <div class="button-class">ボタン</div>
+            <div class="button-class2">ボタン2</div>
+        </div>
+        <div style="margin-bottom: 30px;">
+            <h3>.ready(func)</h3>
+            <p>・ $(document).ready( function(){ ... } ) のこと</p>
+            <p>・jQueryを書く時、メインコードを{ ... }の中に書いているあれ</p>
+            <p>・実はこれも関数（メソッド）で、"ページ全体"$(document)に対し、ページ全体が表示された後、引数の関数のを実行する。という意味になっている</p>
+            <p>コードも参照</p>
+        </div>
+        <div style="margin-bottom: 30px;">
+            <h3>そのほか（一覧）</h3>
+            <a href="https://qiita.com/anago1030/items/62da6bc05bca7a0bee55">参考１</a>
+            <a href="https://qiita.com/msrks/items/cc3615b312d6acdd8b5f">参考２</a>
+        </div>
+        <h3>これら以外にも、たくさんメソッドや関数が用意されているので、なにか行いたい操作があり、自分で作るのが難しそうなときは、メソッドが用意されているかも</h3>
+    </div>
+
+    <!-- ここから、問題用html -->
+    <h1>問題</h1>
+    <div class="one-one" style="margin-bottom: 20px;">
+        <h2>1-1</h2>
+        <button>問題 1-1</button>
+    </div>
+    <div class="one-two" style="margin-bottom: 20px;">
+        <h2>1-2</h2>
+        <button>問題 1-2</button>
+    </div>
+    <div class="one-three" style="margin-bottom: 20px;">
+        <h2>1-3</h2>
+        <button>問題 1-3</button>
+    </div>
+    <div class="one-four" style="margin-bottom: 20px;">
+        <h2>1-4</h2>
+        <button>問題 1-4</button>
+    </div>
+    <div class="one-five" style="margin-bottom: 20px;">
+        <h2>1-5</h2>
+        <button>問題 1-5</button>
+    </div>
+    <div class="one-six" style="margin-bottom: 20px;">
+        <h2>1-6</h2>
+        <button>問題 1-6</button>
+    </div>
+    <div class="two-one" style="margin-bottom: 20px;">
+        <h2>2-1</h2>
+        <input>
+    </div>
+    <div class="two-two" style="margin-bottom: 20px;">
+        <h2>2-1</h2>
+        <input>
+    </div>
+    <div class="two-three" style="margin-bottom: 20px;">
+        <h2>2-3</h2>
+        <input>
+        <p></p>
+    </div>
+    <div class="two-four" style="margin-bottom: 20px;">
+        <h2>5</h2>
+        <input>
+        <button>表示</button>
+        <p></p>
+    </div>
+
+</body>
+<script>
+    $(document).ready(function(){ //ページが起動したら、関数function(){...}を実行する。という意味
+        // 解説
+        $(".button-class").on("click", function(){
+            console.log("push")
+        })
+
+        // このような書き方でもいい（この場合、pushButton2()と、()はつけない）
+        // あらかじめ関数を定義しておいて、引数に渡している
+        // 上の書き方は、その場で関数を定義して引数として渡している
+        // function(){} という書き方は、その場で関数を定義して引数にするための特殊な書き方と思っていて大丈夫
+        $(".button-class2").on("click", pushButton2) 
+    
+
+
+        // 問題
+        // 1-1. ボタンを押すとボタンの色がコンソールに出力される
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）ボタンの色を取得する方法
+
+        // 1-2. ボタンを押すと、赤いボタンが青いボタンになる
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）ボタンの色を変える方法
+
+        // 1-3. ボタンを押すと、何回押したかがコンソールに出力される
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+       
+        // 1-4. ボタンを押すと、何回押したかがコンソールに出力される ＋ 5回以上押したらそれ以降は数字ではなく「押しすぎ！」とテキストをコンソールに出力
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+        // ・（ポイント）回数によって処理を変える
+
+        // 1-5. ボタンを押すと、何回押したかがコンソールに出力される ＋ 5回以上押したらボタンを赤くする
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）何回目かという数字を格納しておく変数を使う
+        // ・（ポイント）回数によって処理を変える
+        // ・（ポイント）ボタンの色を変える方法
+
+        // 1-6. ボタンを押すと、ボタンの色が切り替わる（初めは赤で、青、赤、青、...と押すごとに切り替わる）
+        // ・（ポイント）クリックを検知する方法
+        // ・（ポイント）ボタンの色を取得する方法（色を変数（自分で作る）に格納すると良い）
+        // ・（ポイント）ボタンの色を変える方法（何色の状態で押すかによって次何色になるかが変わる）
+        // 赤："rgb(255, 0, 0)"、青："rgb(0, 0, 255)"
+
+        // answer
+        /*
+        $('.one-six button').on("click", function(){
+            let color = $(this).css('background-color')
+            if(color === "rgb(255, 0, 0)") {
+                $(this).css('background-color', 'rgb(0, 0, 255')
+            }
+            if(color === "rgb(0, 0, 255)") {
+                $(this).css('background-color', 'rgb(255, 0, 0')
+            }
+        })
+        */
+
+        // 2-1. テキストボックスにテキストを何か入力すると、コンソールに「入力された！」と表示される
+        // ・（ポイント）入力を検知する方法
+
+        // 2-2. テキストボックスにテキストを何か入力すると、コンソールに入力されたテキストが表示される
+        // ・（ポイント）入力を検知する方法
+        // ・（ポイント）入力を取得してくる方法（入力値を変数に格納）
+
+        // 2-3. テキストボックスにテキストを何か入力すると、pに入力された文字が表示される
+        // ・（ポイント）入力を検知する方法
+        // ・（ポイント）入力を取得してくる方法（入力値を変数に格納）
+        // ・（ポイント）文字を表示する要素に、どのように文字を設定するか？
+
+        // 2-4.  テキストボックスにテキストを何か入力し、ボタンを押すと、pに入力された文字が表示される
+        // ・今回はボタンを押さなければ表示されない
+        // ・（ポイント）入力を取得してくる方法（入力値を変数に格納すると良い）
+        // ・（ポイント）ボタンが押されたことを検知する方法
+        // ・（ポイント）文字を表示する要素に、文字を反映する方法
+
+        // answer
+        /*
+        var value = ""
+
+        $('.two-four input').on('input', function(event){
+            value = $(this).val()
+        })
+
+        $('.two-four button').on("click", function(){
+            $('.two-four p').text(value)
+        })
+        */
+  
+    })
+    // 解説
+    function pushButton2() {
+        console.log("push 2!")
+    }
+    
+
+
+    // 問題
+    // 以下に関数を書く
+
+</script>
+</html>
+
+
