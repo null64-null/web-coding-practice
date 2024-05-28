@@ -184,28 +184,185 @@
 
 
 
-
     /////////////////////////////////////// 問題10 ///////////////////////////////////////
     $(document).ready(function(){
-        var report = ''
+        // pushメソッドの練習
+        // 今回は関数を作らない
+        var words = ['しりとり', 'りんご', 'ごりら']
+        var newWord = 'らっぱ'
+
+        // pushメソッドを使って、wordsにnewWordsを加える。words = ['しりとり', 'りんご', 'ごりら', 'らっぱ']にする
+
+
+        console.log(words) // ['しりとり', 'りんご', 'ごりら', 'らっぱ']と出たら正解
+    })
+
+
+
+
+
+    /////////////////////////////////////// 問題11 ///////////////////////////////////////
+    $(document).ready(function(){
+        // pushメソッドの練習
+        // 今回は関数の中でpushメソッドを使う,今回は、関数だけ編集する（ready内はこのままにして、addNewWord関数を完成させる）
+        var words = ['しりとり', 'りんご', 'ごりら']
+        var newWord = 'らっぱ'
+
+        addNewWord(words, addNewWord)
+
+        console.log(words) // ['しりとり', 'りんご', 'ごりら', 'らっぱ']と出たら正解
+    })
+    // 以下の関数を完成させる（処理部分のみ編集する）
+    // 
+    function addNewWord(words, addNewWord) {
+        // pushメソッドを使って、wordsにnewWordsを加える。
+
+
+    }
+
+
+
+
+    /////////////////////////////////////// 問題12 ///////////////////////////////////////
+    $(document).ready(function(){
         var words = []
 
-        const word0 = ['しりとり']
-        report =                // ここで関数を使用
-        console.log(report)     // 出力結果：現在は['しりとり']と続いています
+        // １回目
+        const word0 = 'しりとり'
+                                // ここで関数addNewWordを使用して、wordsに言葉を加える
+        console.log(words)      // 出力結果：現在は['しりとり']と続いています
 
+
+        // ２回目
         const word1 = 'りんご'
-        report =                // ここで関数を使用
-        console.log(report)     // 出力結果：現在は['しりとり', 'りんご']と続いています
+                                // ここで関数addNewWordを使用して、wordsに言葉を加える
+        console.log(words)      // 出力結果：現在は['しりとり', 'りんご']と続いています
 
+
+        // ３回目
         const word2 = 'ごりら'   
-        report =                // ここで関数を使用
-        console.log(report)     // 出力結果：現在は['しりとり', 'りんご', 'ごりら']と続いています
+                                // ここで関数addNewWordを使用して、wordsに言葉を加える
+        console.log(words)      // 出力結果：現在は['しりとり', 'りんご', 'ごりら']と続いています
+    })
+    // 引数と処理を編集して、関数を完成させる
+    function addNewWord() {
+        
+    }
+
+
+
+
+
+    /////////////////////////////////////// 問題13 ///////////////////////////////////////
+    $(document).ready(function(){
+        // 数学、理科、国語、社会の点数を集計しましょう
+        
+        // person1
+        var name = 'person1'
+        var math = 60
+        var science = 90
+        var japanese = 60
+        var society = 40
+        // 上の得点を集計して、コンソールに、「平均は〇〇、合計は〇〇」と表示（関数を定義して使って）
+
+
+        // person2
+        var name = 'person2'
+        var math = 75
+        var science = 100
+        var japanese = 30
+        var society = 85
+        // 上の得点を集計して、コンソールに、「平均は〇〇、合計は〇〇」と表示（関数を定義して使って）
+
 
     })
-    // 関数は１つ作る、その関数は、「wordsに単語を追加する」 ＋ 「現在のしりとり履歴のレポート文を返す」
+    // 以下で関数を定義
+    // point: 関数の中で、平均を格納する変数と、合計を格納する変数を自分で設定して使うと、コードがスッキリするよ
 
 
+
+
+
+    /////////////////////////////////////// 問題14 ///////////////////////////////////////
+    $(document).ready(function(){
+        // オブジェクトの練習
+        // 今回は関数を編集するのは（６）のみ
+        // ヒント：js オブジェクト（https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Basics）
+        
+        // person1
+        var person = {
+            name : 'person1',
+            math : 60,
+            science : 90,
+            japanese : 60,
+            society : 40,
+        }
+
+        // （１）personのnameをコンソール出力
+
+
+        // （２）personのjapaneseを、100に変更する
+
+
+        // （３）personのjapaneseをコンソールに出力、正しく変更されていたらOK
+
+
+        // （４）全科目の平均点を計算し、averageという変数に格納
+
+
+        // （５）averageをコンソールに出力
+
+
+        // （６）引数にpersonをとって、平均点を計算して返り値として返す関数を作成する
+        // その関数を使って、平均点を計算して、averageByfunctionという変数に格納
+
+
+        // （７）averageByfunctionをコンソールに出力
+
+    })
+    // 引数にpersonをとって、平均点を計算して返り値として返す関数を作成する
+
+
+
+
+
+    /////////////////////////////////////// 問題15 ///////////////////////////////////////
+    $(document).ready(function(){
+        // 数学、理科、国語、社会の点数を集計しましょう
+        // 今すでに書いてあるものは編集しなくて良いけれど、他の行には何を書き足してもOK
+        // ヒント：js オブジェクト（https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Basics）
+        
+        // person1
+        const person1 = {
+            name : 'person1',
+            math : 60,
+            science : 90,
+            japanese : 60,
+            society : 40,
+        }
+        // 上の得点を集計して、コンソールに、「平均は〇〇、合計は〇〇」と表示（関数 syukei を定義して使って）
+
+
+        // person2
+        const person2 = {
+            name : 'person2',
+            math : 75,
+            science : 100,
+            japanese : 30,
+            society : 85,
+        }
+        // 上の得点を集計して、コンソールに、「平均は〇〇、合計は〇〇」と表示（関数 syukei を定義して使って）
+
+
+
+        // 最後に、person1とperson2の合計を比べて、コンソールに、「合計点は〇〇さんの方が大きいです」(関数 conpare を使って)
+
+
+    })
+    // 個人の得点を集計して「平均は〇〇、合計は〇〇」とコンソールに表示する関数 syukei を定義
+
+
+    // 2人のそれぞれの合計点を計算して比較し、「合計点は〇〇さんの方が大きいです」とコンソールに表示する関数 conpare を定義
 
 
 </script>
